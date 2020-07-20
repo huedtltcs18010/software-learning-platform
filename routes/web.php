@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+require_once __DIR__ . '/backend.php';
+require_once __DIR__ . '/frontend.php';
+
+Auth::routes(['register' => false]);
+
+Route::get('/home', 'Web\HomeController@index');
